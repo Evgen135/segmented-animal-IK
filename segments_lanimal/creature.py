@@ -9,11 +9,11 @@ class Creature:
         self.speed=speed
 
     def creature(self):
-        r1=30#forma
+        r1=30
         for i in range (0,self.lenn):
             r=r1-i*(r1/(self.lenn-1))
             self.boddy.append(self.seg(self.width*0.5-i*r1,self.height*0.5,0,0.5*r,r/2,i*10))
-        # return self.boddy[i]
+        
 
         
     def update_s(self):
@@ -25,9 +25,9 @@ class Creature:
             delta+=2*PI
         while delta>PI:
             delta-=2*PI
-        head.angle+=0.06*delta #speed rotation im mause
+        head.angle+=0.06*delta 
         
-        # head.angle=a
+        
         head.x+=self.speed*cos(head.angle)
         head.y+=self.speed*sin(head.angle)
         for i in range(1,self.lenn):
@@ -38,19 +38,19 @@ class Creature:
 
         
     def display(self):
-        # for i in range (0,self.lenn):
-        #     self.boddy[i].display()
+
         
         head=self.boddy[0]
-        #noFill()
+        
         pushMatrix()
         translate(head.x,head.y)
         rotate(head.angle)
         fill(head.hue,100,100)
-        arc(0,0,head.radius*2.5,head.radius*2,-0.6*PI,0.6*PI) #pervi "head.radius*" eto dlinna head
-        fill("#FFFFFF")
+        arc(0,0,head.radius*2.5,head.radius*2,-0.6*PI,0.6*PI)
+
         
-        circle(head.radius/2,head.radius/1.4,13) #glaza
+        fill("#FFFFFF")
+        circle(head.radius/2,head.radius/1.4,13) 
         circle(head.radius/2,-head.radius/1.4,13)   
         noFill 
         popMatrix()
@@ -58,8 +58,8 @@ class Creature:
             
         for i in range (0,self.lenn-1):
             s=self.boddy[i]
-            s.display() #1
-            stroke(0)#4 create line
+            s.display()
+            stroke(0)
             next = self.boddy[i+1]
             x1=s.x+s.radius*cos(s.angle-0.5*PI)
             y1=s.y+s.radius*sin(s.angle-0.5*PI)
