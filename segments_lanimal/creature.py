@@ -46,14 +46,15 @@ class Creature:
         pushMatrix()
         translate(head.x,head.y)
         rotate(head.angle)
-        
-        fill("#FFFFFF")
-        circle(head.radius/2,head.radius/1.4,13)
-        circle(head.radius/2,-head.radius/1.4,13)   
-        noFill #5    
         fill(head.hue,100,100)
         arc(0,0,head.radius*2.5,head.radius*2,-0.6*PI,0.6*PI) #pervi "head.radius*" eto dlinna head
+        fill("#FFFFFF")
+        
+        circle(head.radius/2,head.radius/1.4,13) #glaza
+        circle(head.radius/2,-head.radius/1.4,13)   
+        noFill 
         popMatrix()
+        
             
         for i in range (0,self.lenn-1):
             s=self.boddy[i]
